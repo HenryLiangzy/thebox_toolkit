@@ -32,6 +32,7 @@ def time_stamp():
     now = time.strftime("%b-%d %H:%M:%S",time.localtime(time.time()))
     return '['+now+']'
 
+
 def get_source(url, session=None):
     
     # first time
@@ -53,6 +54,7 @@ def get_source(url, session=None):
 
         return html_data, session
 
+
 def download(url, file_name, session=None):
     
     # if no session provided
@@ -71,14 +73,13 @@ def download(url, file_name, session=None):
             for data in video.iter_content(chunk_size=chunk_size):
                 fp.write(data)
                 finish_size += len(data)
-                print('\r'+'[Download]:%s%.2f%%' % ('>'*int(finish_size*50 / length), float(finish_size / length*100)),end=' ')
+                print('\r'+'[Downloading]:%s%.2f%%' % ('>'*int(finish_size*50 / length), float(finish_size / length*100)),end=' ')
 
             # finish download
             print(time_stamp(), 'Download completed and save as', file_name)
                 
         except:
             print(time_stamp(),'ERROR: Download fail, please retry or contact for help')
-
 
 
 def extract_video_link(html_data):
@@ -110,6 +111,7 @@ def extract_video_link(html_data):
     # return the title of video and video link list
     return title, video_list
 
+
 def main():
 
     # get link from user
@@ -133,23 +135,23 @@ def main():
         print(order_num, video_obj['title'])
         order_num+=1
 
-    choosen = int(input('Enter order num: '))
+    chosen = int(input('Enter order num: '))
 
-    if choosen > len(video_list)+1:
+    if chosen > len(video_list)+1:
         print('ERROR: Wrong input, program exit')
         exit(1)
 
     # if user want to download by itself
-    if choosen == -1:
+    if chosen == -1:
         for video in video_list:
             print(video['title'], ':\t', video['file'])
 
     # else download by program
     else:
-        choosen_obj = video_list[choosen-1]
+        chosen_obj = video_list[chosen-1]
 
         # star to download
-        download(choosen_obj['file'], choosen_obj['title'], session=session)
+        download(chosen_obj['file'], chosen_obj['title'], session=session)
 
 
 if __name__ == "__main__":
