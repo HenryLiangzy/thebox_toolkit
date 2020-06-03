@@ -87,6 +87,9 @@ def download(url, file_name, session=None):
         except Exception:
             print(time_stamp(),'ERROR: Download fail, please retry or contact for help')
 
+    # return session for further processing
+    return session
+
 
 def extract_video_link(html_data):
     bs = BeautifulSoup(html_data, 'html.parser')
