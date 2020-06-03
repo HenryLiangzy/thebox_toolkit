@@ -46,22 +46,22 @@ OrderNum FileName
 Enter order num: 
 ```
 
-Here you can choose to download which source, normally will provide two option, one is standard quality video and another is high quality video, by enter the order number like: `1` to choose download the first one
+Here you can choose to download which source, normally will provide two options, one is standard quality video and another one is high quality video, by enter the order number like: `1` to choose download the first one
 ```
 Enter order num: 1
 [Jun-02 15:37:45] Start to download file, size: 37.66 MB
 [Download]:>>4.50% 
 ```
-Once you enter the order number, it will show the size of file and current process, when the download finish, the file will save in the  path as this script with the file name show on above.
+Once you enter the order number, it will show the size of file and current processbar, when the download finish, the file will save in the same path as this script with the file name show on above.
 
-Or you can choose to donwload by yourself by enter `-1`, the script will provide the link extract from thebox source code for you using `wget` or other tools to download.
+Or you can choose to donwload it by yourself by enter `-1`, the script will provide the link extract from thebox source code for you using `wget` or other tools to download.
 ```
 1587175220441-ll2_part1-portalStd.mp4 :         https://XXXXXXXXXXX/734D37A1-8118-11EA-80B93A4DC65A5E0F/1587175220441-ll2_part1-portalStd.mp4
 1587175220441-ll2_part1-portalHigh-YouTube.mp4 :         https://XXXXXXXXXXX/1587175220441-ll2_part1-portalHigh-YouTube.mp4
 ```
 
 ### Bugs and Issue
-Currently tested on **MacOs** and **Ubuntu**, if you have any report please [create an issue](https://github.com/HenryLiangzy/thebox_toolkit/issues/new/choose)
+Currently tested on **MacOs** and **Ubuntu**, if you have any report please [create an issue](https://github.com/HenryLiangzy/thebox_toolkit/issues/new/choose) or contact me.
 
 
 ### LICENSE
