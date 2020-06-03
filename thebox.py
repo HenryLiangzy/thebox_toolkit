@@ -77,8 +77,14 @@ def download(url, file_name, session=None):
 
             # finish download
             print(time_stamp(), 'Download completed and save as', file_name)
+
+        # when user choose to stop download
+        except KeyboardInterrupt:
+            print(time_stamp(), 'HINTS: Program finish, provide download link for further process:')
+            print(url)
                 
-        except:
+        # when other exception
+        except Exception:
             print(time_stamp(),'ERROR: Download fail, please retry or contact for help')
 
 
