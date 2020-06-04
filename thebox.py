@@ -3,18 +3,21 @@
 '''
 Download script for thebox website
 Developed by: Henry Liang
-Last modify: 2nd Jun
+Last modify: 4th Jun
 '''
 
 import re
 import sys
 import json
+import math
 import time
 import requests
 from bs4 import BeautifulSoup
 
 
 # basic value definition
+chunk_size = 1024
+bar_len = 50
 ecoding = 'utf-8'
 header = {
     'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36',
@@ -23,13 +26,32 @@ header = {
     'Accept-language': 'zh-CN,zh;q=0.9',
     'Connection': 'keep-alive'
 }
-chunk_size = 1024
 
+
+def show(file_size):
+    unit_list = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
+    i = int(math.floor(math.log(file_size, 1024)))
+
+    # if over the range of unit list
+    if i >= len(unit_list):
+        i = len(unit_list) - 1
+    
+    return '{size:.3f} {unit}'.format(size=file_size/math.pow(1024, i), unit=unit_list[i])
+
+def eta(rate, remain_size):
+    if rate == 0:
+        return '0:0:0'
+    else:
+        eta_time = remain_size / rate
+        h = eta_time // 3600
+        m = (eta_time-h*3600) // 60
+        s = (eta_time-h*3600-m*60)
+        return '%d:%d:%.2f'%(h, m, s)
 
 def time_stamp():
     ''' Formating the time stamp function for log output '''
 
-    now = time.strftime("%b-%d %H:%M:%S",time.localtime(time.time()))
+    now = time.strftime("%H:%M:%S",time.localtime(time.time()))
     return '['+now+']'
 
 
@@ -65,26 +87,36 @@ def download(url, file_name, session=None):
     finish_size = 0
     length = float(video.headers['content-length'])
 
-    print(time_stamp(), 'Start to download file, size: {size:.2f} MB'.format(size = length/1024/1024))
+    # print(time_stamp(), 'Start to download file, size: {size:.2f} MB'.format(size = length/1024/1024))
+    print(time_stamp(), 'Start to download file, size: {size}'.format(size = show(length)))
 
+    # record start time
+    start_t = time.time()
     # save content
     with open(file_name, 'wb') as fp:
         try:
             for data in video.iter_content(chunk_size=chunk_size):
                 fp.write(data)
                 finish_size += len(data)
-                print('\r'+'[Downloading]:%s%.2f%%' % ('>'*int(finish_size*50 / length), float(finish_size / length*100)),end=' ')
+
+                # for process bar display
+                rate = finish_size/(time.time()-start_t)
+                finish_unit = int(finish_size*bar_len/length)
+                print('\r'+'[Downloading]: |%s| %.2f%%  %s/s ETA: %s -' % ('>'*finish_unit+' '*(bar_len-finish_unit), float(finish_size/length*100), show(rate), eta(rate, length-finish_size)),end=' ')
 
             # finish download
+            print()
             print(time_stamp(), 'Download completed and save as', file_name)
 
         # when user choose to stop download
         except KeyboardInterrupt:
+            print()
             print(time_stamp(), 'HINTS: Program finish, provide download link for further process:')
             print(url)
                 
         # when other exception
-        except Exception:
+        except:
+            print()
             print(time_stamp(),'ERROR: Download fail, please retry or contact for help')
 
     # return session for further processing
@@ -165,3 +197,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #print(show(5463443))
