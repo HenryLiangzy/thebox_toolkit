@@ -29,6 +29,11 @@ header = {
 
 
 def show(file_size):
+
+    # when is zero
+    if file_size == 0:
+        return '0 B'
+
     unit_list = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
     i = int(math.floor(math.log(file_size, 1024)))
 
@@ -46,7 +51,7 @@ def eta(rate, remain_size):
         h = eta_time // 3600
         m = (eta_time-h*3600) // 60
         s = (eta_time-h*3600-m*60)
-        return '%d:%d:%.2f'%(h, m, s)
+        return '%d:%d:%d'%(h, m, int(s))
 
 def time_stamp():
     ''' Formating the time stamp function for log output '''
@@ -102,7 +107,7 @@ def download(url, file_name, session=None):
                 # for process bar display
                 rate = finish_size/(time.time()-start_t)
                 finish_unit = int(finish_size*bar_len/length)
-                print('\r'+'[Downloading]: |%s| %.2f%%  %s/s ETA: %s -' % ('>'*finish_unit+' '*(bar_len-finish_unit), float(finish_size/length*100), show(rate), eta(rate, length-finish_size)),end='')
+                print('\r'+'[%.2f%%]: |%s| Remain: %s %s/s ETA:%s -' % (float(finish_size/length*100), '>'*finish_unit+' '*(bar_len-finish_unit), show(length-finish_size), show(rate), eta(rate, length-finish_size)),end='')
 
             # finish download
             print()
@@ -115,9 +120,9 @@ def download(url, file_name, session=None):
             print(url)
                 
         # when other exception
-        except:
+        except Exception as e:
             print()
-            print(time_stamp(),'ERROR: Download fail, please retry or contact for help')
+            print(time_stamp(),'ERROR:', e)
 
     # return session for further processing
     return session
@@ -192,7 +197,7 @@ def main():
         chosen_obj = video_list[chosen-1]
 
         # star to download
-        download(chosen_obj['file'], chosen_obj['title'], session=session)
+        download(chosen_obj['file'], title+'.mp4', session=session)
 
 
 if __name__ == "__main__":
