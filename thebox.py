@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 
 # basic value definition
 chunk_size = 1024
-bar_len = 50
+bar_len = 25
 ecoding = 'utf-8'
 header = {
     'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36',
@@ -36,7 +36,7 @@ def show(file_size):
     if i >= len(unit_list):
         i = len(unit_list) - 1
     
-    return '{size:.3f} {unit}'.format(size=file_size/math.pow(1024, i), unit=unit_list[i])
+    return '{size:.2f} {unit}'.format(size=file_size/math.pow(1024, i), unit=unit_list[i])
 
 def eta(rate, remain_size):
     if rate == 0:
@@ -102,7 +102,7 @@ def download(url, file_name, session=None):
                 # for process bar display
                 rate = finish_size/(time.time()-start_t)
                 finish_unit = int(finish_size*bar_len/length)
-                print('\r'+'[Downloading]: |%s| %.2f%%  %s/s ETA: %s -' % ('>'*finish_unit+' '*(bar_len-finish_unit), float(finish_size/length*100), show(rate), eta(rate, length-finish_size)),end=' ')
+                print('\r'+'[Downloading]: |%s| %.2f%%  %s/s ETA: %s -' % ('>'*finish_unit+' '*(bar_len-finish_unit), float(finish_size/length*100), show(rate), eta(rate, length-finish_size)),end='')
 
             # finish download
             print()
