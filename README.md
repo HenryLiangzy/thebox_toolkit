@@ -14,7 +14,7 @@ this toolkit using python3 with follow library:
 To use program, first make sure your python3 already have library above, if not please install as follow:
 
 ```
-python3 -m pip install requests beautifulsoup4
+python3 -m pip install -r requirement
 ```
 
 Then, go to the folder you want to place this toolkit and run follow command to download
