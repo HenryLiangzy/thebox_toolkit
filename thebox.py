@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 
 
 # basic value definition
-chunk_size = 1024
+chunk_size = 1024*500
 bar_len = 25
 ecoding = 'utf-8'
 header = {
@@ -51,7 +51,7 @@ def eta(rate, remain_size):
         h = eta_time // 3600
         m = (eta_time-h*3600) // 60
         s = (eta_time-h*3600-m*60)
-        return '%d:%d:%d'%(h, m, int(s))
+        return '%dh %dm %ds'%(h, m, int(s))
 
 def time_stamp():
     ''' Formating the time stamp function for log output '''
@@ -96,7 +96,7 @@ def download(url, file_name, session=None):
     print(time_stamp(), 'Start to download file, size: {size}'.format(size = show(length)))
 
     # record start time
-    start_t = time.time()
+    start_time = time.time()
     # save content
     with open(file_name, 'wb') as fp:
         try:
@@ -105,9 +105,11 @@ def download(url, file_name, session=None):
                 finish_size += len(data)
 
                 # for process bar display
-                rate = finish_size/(time.time()-start_t)
+                cur = time.time()
+                rate = len(data)/(cur-start_time)
                 finish_unit = int(finish_size*bar_len/length)
                 print('\r'+'[%.2f%%]: |%s| Remain: %s %s/s ETA:%s -' % (float(finish_size/length*100), '>'*finish_unit+' '*(bar_len-finish_unit), show(length-finish_size), show(rate), eta(rate, length-finish_size)),end='')
+                start_time = cur
 
             # finish download
             print()
