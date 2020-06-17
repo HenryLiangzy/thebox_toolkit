@@ -56,7 +56,7 @@ OrderNum FileName
 Enter order num:
 ```
 
-Here you can choose to download which source, normally will provide two options, one is standard quality video and another one is high quality video, by enter the order number like: `1` to choose download the first one
+Here you can choose to download which source, normally will provide two options, one is **Standard** *(xxx_portalStd.mp4)* quality video and another one is **High-quality** *(XXX_portalHigh-YouTube.mp4)* video, by enter the order number like: `1` to choose download the first one
 
 ```(bash)
 Enter order num: 1
