@@ -14,16 +14,16 @@ this toolkit using python3 with follow library:
 4. json
 5. time
 
+Go to the folder you want to place this toolkit and run follow command to download
+
+```(bash)
+git clone https://github.com/HenryLiangzy/thebox_toolkit.git
+```
+
 To use program, first make sure your python3 already have library above, if not please install as follow:
 
 ```(bash)
 python3 -m pip install -r requirement
-```
-
-Then, go to the folder you want to place this toolkit and run follow command to download
-
-```(bash)
-git clone https://github.com/HenryLiangzy/thebox_toolkit.git
 ```
 
 ### Instruction
