@@ -111,10 +111,6 @@ def download(url, file_name, session=None):
                 print('\r'+'[%.2f%%]: |%s| Remain: %s %s/s ETA:%s -' % (float(finish_size/length*100), '>'*finish_unit+' '*(bar_len-finish_unit), show(length-finish_size), show(rate), eta(rate, length-finish_size)),end='')
                 start_time = cur
 
-            # finish download
-            print()
-            print(time_stamp(), 'Download completed and save as', file_name)
-
         # when user choose to stop download
         except KeyboardInterrupt:
             print()
@@ -125,6 +121,10 @@ def download(url, file_name, session=None):
         except Exception as e:
             print()
             print(time_stamp(),'ERROR:', e)
+
+    # finish download
+    print()
+    print(time_stamp(), 'Download completed and save as', file_name)
 
     # return session for further processing
     return session
