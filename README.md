@@ -11,7 +11,6 @@ this toolkit using **python3.7** with follow third party library:
 1. [Requests](https://requests.readthedocs.io/)
 2. [BeautifulSoup 4](https://beautifulsoup.readthedocs.io)
 
-
 Go to the folder you want to place this toolkit and run follow command to download
 
 ```(bash)
@@ -28,7 +27,7 @@ python3 -m pip install -r requirement
 If you want to update *thebox_toolkit* or check it is the latest version, go to *thebox_toolkit* folder and run follow command in terminal
 
 ```(bash)
-git pull origin
+git pull origin master
 ```
 
 ### Instruction
