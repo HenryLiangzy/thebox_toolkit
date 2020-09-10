@@ -89,8 +89,8 @@ Or you can choose to donwload it by yourself by enter `-1`, the script will prov
 ```
 
 ### Contribution
-* Python script @HenryLiangzy
-* Bash script @ttuanho
+* Python script [@HenryLiangzy](https://github.com/HenryLiangzy)
+* Bash script [@ttuanho](https://github.com/ttuanho)
 
 ### Bugs and Issue
 
