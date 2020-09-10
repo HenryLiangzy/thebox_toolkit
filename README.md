@@ -4,6 +4,19 @@ Use for **UNSW** student to download the video from **thebox** website
 
 ## Install and Instruction
 
+### Instruction for Bash scripts
+
+Simply run 
+
+```bash
+sh ./thebox.sh  https://thebox.unsw.edu.au/video/*** 1
+```
+
+where the 3rd argument is 
+
+- `1` for standard resolution
+- `2` for high resolution
+
 ### Install
 
 this toolkit using **python3.7** with follow third party library:
@@ -30,7 +43,9 @@ If you want to update *thebox_toolkit* or check it is the latest version, go to 
 git pull origin master
 ```
 
-### Instruction
+
+### Instruction for Python scripts
+
 
 The first you need to prepare thebox *link/url* given by your lecturer from Webcms or other place, the link should look like follow:
 
@@ -78,4 +93,4 @@ Currently tested on **MacOs** and **Ubuntu**, if you have any report please [cre
 
 ### LICENSE
 
-[Apache 2.0](https://github.com/HenryLiangzy/thebox_toolkit/blob/master/LICENSE) @HenryLiangzy
+[Apache 2.0](https://github.com/HenryLiangzy/thebox_toolkit/blob/master/LICENSE) @HenryLiangzy @ttuanho
