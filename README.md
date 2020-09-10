@@ -4,7 +4,34 @@ Use for **UNSW** student to download the video from **thebox** website
 
 ## Install and Instruction
 
-### Instruction for Bash scripts
+### Installation
+
+Go to the folder you want to place this toolkit and run follow command to download
+
+```(bash)
+git clone https://github.com/HenryLiangzy/thebox_toolkit.git
+```
+
+If you want to update *thebox_toolkit* or check it is the latest version, go to *thebox_toolkit* folder and run follow command in terminal
+
+```(bash)
+git pull origin master
+```
+
+#### Python version pre-requirement
+this toolkit using **python3.7** with follow third party library:
+
+1. [Requests](https://requests.readthedocs.io/)
+2. [BeautifulSoup 4](https://beautifulsoup.readthedocs.io)
+
+To use program, first make sure your python3 already have library above, if not please install as follow: (*Run follow command in the terminal*)
+
+```(bash)
+cd thebox_toolkit/
+python3 -m pip install -r requirement
+```
+
+### Instruction for Bash scripts (Thanks for @ttuanho)
 
 Simply run 
 
@@ -16,32 +43,6 @@ where the 3rd argument is
 
 - `1` for standard resolution
 - `2` for high resolution
-
-### Install
-
-this toolkit using **python3.7** with follow third party library:
-
-1. [Requests](https://requests.readthedocs.io/)
-2. [BeautifulSoup 4](https://beautifulsoup.readthedocs.io)
-
-Go to the folder you want to place this toolkit and run follow command to download
-
-```(bash)
-git clone https://github.com/HenryLiangzy/thebox_toolkit.git
-```
-
-To use program, first make sure your python3 already have library above, if not please install as follow: (*Run follow command in the terminal*)
-
-```(bash)
-cd thebox_toolkit/
-python3 -m pip install -r requirement
-```
-
-If you want to update *thebox_toolkit* or check it is the latest version, go to *thebox_toolkit* folder and run follow command in terminal
-
-```(bash)
-git pull origin master
-```
 
 
 ### Instruction for Python scripts
@@ -87,10 +88,15 @@ Or you can choose to donwload it by yourself by enter `-1`, the script will prov
 1587175220441-ll2_part1-portalHigh-YouTube.mp4 :         https://XXXXXXXXXXX/1587175220441-ll2_part1-portalHigh-YouTube.mp4
 ```
 
+### Contribution
+* Python script @HenryLiangzy
+* Bash script @ttuanho
+
 ### Bugs and Issue
 
-Currently tested on **MacOs** and **Ubuntu**, if you have any report please [create an issue](https://github.com/HenryLiangzy/thebox_toolkit/issues/new/choose) or [Email](mailto:Henryliangzy@gmail.com) contact me.
+Currently tested on **MacOs** and **Ubuntu**, if you have any report please [create an issue](https://github.com/HenryLiangzy/thebox_toolkit/issues/new/choose).
+
 
 ### LICENSE
 
-[Apache 2.0](https://github.com/HenryLiangzy/thebox_toolkit/blob/master/LICENSE) @HenryLiangzy @ttuanho
+[Apache 2.0](https://github.com/HenryLiangzy/thebox_toolkit/blob/master/LICENSE)
