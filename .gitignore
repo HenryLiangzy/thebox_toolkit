@@ -1,0 +1,8 @@
+# for vscode developement
+.vscode/
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
