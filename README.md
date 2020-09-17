@@ -19,6 +19,7 @@ git pull origin master
 ```
 
 #### Python version pre-requirement
+
 this toolkit using **python3.7** with follow third party library:
 
 1. [Requests](https://requests.readthedocs.io/)
@@ -33,20 +34,18 @@ python3 -m pip install -r requirement
 
 ### Instruction for Bash scripts (Thanks for @ttuanho)
 
-Simply run 
+Simply run  
 
 ```bash
 sh ./thebox.sh  https://thebox.unsw.edu.au/video/*** 1
 ```
 
-where the 3rd argument is 
+where the 3rd argument is
 
 - `1` for standard resolution
 - `2` for high resolution
 
-
 ### Instruction for Python scripts
-
 
 The first you need to prepare thebox *link/url* given by your lecturer from Webcms or other place, the link should look like follow:
 
@@ -89,13 +88,13 @@ Or you can choose to donwload it by yourself by enter `-1`, the script will prov
 ```
 
 ### Contribution
-* Python script [@HenryLiangzy](https://github.com/HenryLiangzy)
-* Bash script [@ttuanho](https://github.com/ttuanho)
+
+- Python script [@HenryLiangzy](https://github.com/HenryLiangzy)
+- Bash script [@ttuanho](https://github.com/ttuanho)
 
 ### Bugs and Issue
 
 Currently tested on **MacOs** and **Ubuntu**, if you have any report please [create an issue](https://github.com/HenryLiangzy/thebox_toolkit/issues/new/choose).
-
 
 ### LICENSE
 
