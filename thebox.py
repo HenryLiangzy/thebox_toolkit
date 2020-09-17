@@ -166,6 +166,13 @@ def main():
     args = sys.argv
     link = args[1]
 
+    # check user input link
+    link = str(link)
+    if not link.startswith('https://thebox.unsw.edu.au/video/'):
+        print('ERROR: (LINK FORMAT ERROR) Source link should follow the format: https://thebox.unsw.edu.au/video/xxxxxxx')
+        print('Detail please follow GitHub page instruction')
+        return
+
     # scratch the html source code from link
     print(time_stamp(),'Getting the source page...', end=' ')
     html_data, session = get_source(link)
@@ -204,4 +211,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    #print(show(5463443))
